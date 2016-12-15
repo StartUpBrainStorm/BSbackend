@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Main Page</title>
+</head>
+<body>
+
+
+<div>
+    <form action="/reg" method="post">
+        <span>Имя</span>
+        <br/>
+        <input th:type="text" th:name="userFirstName" />
+        <br/>
+        <span>Фамилия</span>
+        <br/>
+        <input th:type="text" th:name="userLastName"/>
+        <br/>
+        <span>Возраст</span>
+        <br/>
+        <input th:type="text" th:name="userAge"/>
+        <br/>
+        <span>Почта</span>
+        <br/>
+        <input th:type="text" th:name="userEmail"/>
+        <br/>
+        <span>Пароль</span>
+        <br/>
+        <input th:type="text" th:name="userPassword"/>
+        <br/>
+        <input th:type="submit" th:value="Войти"/>
+    </form>
+</div>
+
+
+<table border="1" cellpadding="5" cellspacing="0" >
+    <caption>Таблица Пользователей</caption>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Возраст</th>
+        <th>Почта</th>
+        <th>Пароль</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.userFirstName}"></td>
+        <td th:text="${user.userLastName}"></td>
+        <td th:text="${user.userAge}"></td>
+        <td th:text="${user.userEmail}"></td>
+        <td th:text="${user.userPassword}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
